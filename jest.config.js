@@ -1,18 +1,12 @@
-// jest.config.js
-// Sync object
-/** @type {import('@jest/types').Config.InitialOptions} */
-const config = {
-  verbose: true,
-};
-
-module.exports = config;
-
-// Or async function
 module.exports = async () => {
   return {
+    moduleFileExtensions: ['js', 'json', 'ts'],
     verbose: true,
-    rootDir: "test",
-    testRegex: ".*\\.test\\.js",
+    rootDir: 'test',
+    testRegex: '.*\\.test\\.js',
     logHeapUsage: true,
+    testEnvironment: 'node',
+    collectCoverageFrom: ['**/*.(t|j)s'],
+    coverageDirectory: '../coverage',
   };
 };

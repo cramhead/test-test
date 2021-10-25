@@ -1,0 +1,20 @@
+module.exports = async () => {
+  return {
+    moduleFileExtensions: ['js', 'json', 'ts'],
+    verbose: true,
+    rootDir: 'src',
+    testRegex: '.*\\.spec\\.ts$',
+    logHeapUsage: true,
+    transform: {
+      '^.+\\.(t|j)s$': 'ts-jest',
+    },
+    collectCoverageFrom: ['**/*.(t|j)s'],
+    coverageDirectory: '../coverage',
+    testEnvironment: 'node',
+    globals: {
+      'ts-jest': {
+        isolatedModules: true,
+      },
+    },
+  };
+};

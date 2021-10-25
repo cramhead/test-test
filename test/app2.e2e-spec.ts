@@ -16,8 +16,12 @@ describe('AppController2 (e2e)', () => {
   });
 
   afterEach(() => {
-    app.close()
-    app = null;
+    app.flushLogs(); // force flush to hopefully remove references to logs
+
+    app.close(); // close the app to force cleanup
+    app = null; // remove reference to the app
+
+    global.gc && global.gc(); // instigate garbage collection
   })
 
   it('/ (GET)', () => {
